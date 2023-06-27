@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.EmployeeMapper">
+    <insert id="insertEmp">
+        INSERT INTO employee
+        VALUES (NULL, "test", 0, NULL, NULL, NULL);
+    </insert>
+    <select id="getAllUserOnMap" resultType="Map">
+        SELECT *
+        FROM employee
+    </select>
+    <select id="selectMaxAge" resultType="Integer">
+        SELECT MAX(age)
+        FROM employee
+    </select>
+    <select id="selectMaxAgeOnMap" resultType="Map">
+        SELECT MAX(age)
+        FROM employee
+    </select>
+    <!--        SELECT * FROM employee WHERE emp_name LIKE "%#{empName}%"-->
+    <select id="selectLikeByName" resultType="Employee">
+        SELECT *
+        FROM employee
+        WHERE emp_name LIKE CONCAT('%', ${empName}, '%');
+    </select>
+</mapper>
