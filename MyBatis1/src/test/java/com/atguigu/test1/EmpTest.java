@@ -14,6 +14,18 @@ import java.util.Map;
 
 public class EmpTest {
     @Test
+    public void test6() throws IOException {
+        InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSession sqlSession = new SqlSessionFactoryBuilder().build(is).openSession(true);
+        EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
+//        Integer autoKey = null;
+//        mapper.getAutoKey(autoKey,"OOO");
+//        System.out.println(autoKey);
+        Employee emp = new Employee(null, "ppp", null, null, null);
+        mapper.getAutoKey(emp);
+        System.out.println(emp.getEid());
+    }
+    @Test
     public void test5() throws IOException {
         InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSession sqlSession = new SqlSessionFactoryBuilder().build(is).openSession();

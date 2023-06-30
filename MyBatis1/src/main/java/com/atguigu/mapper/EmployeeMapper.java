@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface EmployeeMapper {
+    Integer getAutoKey(Employee employee);
+//    Integer getAutoKey(@Param("autoKey")Integer autoKey,@Param("empName")String empName);
     List<Employee> selectLikeByName(@Param("empName")String empName);
 
     public abstract int insertEmp();

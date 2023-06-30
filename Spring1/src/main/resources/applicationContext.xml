@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <bean id="hello" class="com.atguigu.test1.Hello"/>
+    <bean id="student" class="com.atguigu.test1.Student"/>
+
+    <bean id="clazz" class="com.atguigu.pojo.Clazz"/>
+    <bean id="student1" class="com.atguigu.pojo.Student">
+        <property name="id" value="1"/>
+        <property name="name" value="Tom"/>
+        <property name="age" value="20"/>
+        <property name="clazz" ref="clazz"/>
+        <property name="clazz.classId" value="1001"/>
+        <property name="clazz.className" value="Num1"/>
+    </bean>
+
+    <bean id="student2" class="com.atguigu.pojo.Student">
+        <property name="id" value="2"/>
+        <property name="name" value="Jack"/>
+        <property name="hobby" ref="hobby1"/>
+    </bean>
+    <util:list id="hobby1">
+        <value>吃</value>
+        <ref bean="student1"/>
+    </util:list>
+
+    <bean id="student3" class="com.atguigu.pojo.Student">
+        <property name="name" value="Amy"/>
+        <property name="age" value="19"/>
+        <property name="teacher">
+            <map>
+                <entry key="1001" value-ref="student2"/>
+                <entry>
+                    <key>
+                        <value>1002</value>
+                    </key>
+                    <value>1111</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

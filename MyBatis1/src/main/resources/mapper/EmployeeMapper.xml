@@ -25,4 +25,7 @@
         FROM employee
         WHERE emp_name LIKE CONCAT('%', ${empName}, '%');
     </select>
+    <insert id="getAutoKey" keyProperty="eid" useGeneratedKeys="true">
+        INSERT INTO employee(emp_name) VALUES(#{empName})
+    </insert>
 </mapper>
