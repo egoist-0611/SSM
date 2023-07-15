@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="com.atguigu.test2.MyBeanPostProcessor"/>
+    <bean id="book1" class="com.atguigu.pojo.Book" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="id" value="1001"/>
+        <property name="name" value="三体"/>
+        <property name="price" value="100"/>
+    </bean>
+    <bean id="book2" class="com.atguigu.pojo.Book">
+        <property name="id" value="1002"/>
+        <property name="name" value="红楼梦"/>
+        <property name="price" value="30"/>
+    </bean>
+</beans>

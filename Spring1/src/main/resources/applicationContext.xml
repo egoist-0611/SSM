@@ -40,4 +40,10 @@
             </map>
         </property>
     </bean>
+
+    <bean id="student4" class="com.atguigu.pojo.Student">
+        <property name="id" value="1001"/>
+        <property name="name" value="张三"/>
+        <property name="age" value="10"/>
+    </bean>
 </beans>
