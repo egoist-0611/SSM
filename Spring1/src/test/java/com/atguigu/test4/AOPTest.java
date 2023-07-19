@@ -6,6 +6,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AOPTest {
     @Test
+    public void test2(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("AOP-config.xml");
+        Calculator bean = context.getBean(Calculator.class);
+        int res = bean.add(10, 20);
+        System.out.println(res);
+    }
+    @Test
     public void test1(){
         ApplicationContext context = new ClassPathXmlApplicationContext("AOP-config.xml");
 //        Calculator bean = context.getBean(CalculatorImpl.class);

@@ -4,5 +4,14 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
     <context:component-scan base-package="com.atguigu.test4"/>
-    <aop:aspectj-autoproxy/>
+    <aop:config>
+        <aop:pointcut id="pointCut" expression="execution(* com.atguigu.test4.CalculatorImpl.*(..))"/>
+        <aop:aspect ref="pointCutXML" order="10">
+            <aop:before method="beforeMethod" pointcut-ref="pointCut"/>
+        </aop:aspect>
+        <aop:aspect ref="pointCutXML" order="1">
+            <aop:before method="beforeMethod" pointcut-ref="pointCut"/>
+        </aop:aspect>
+    </aop:config>
+    <!--    <aop:aspectj-autoproxy/>-->
 </beans>
